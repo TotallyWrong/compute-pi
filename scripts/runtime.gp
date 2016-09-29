@@ -1,0 +1,10 @@
+reset
+set ylabel 'time(sec)'
+set xlabel 'N'
+set logscale x 
+set title 'Wall-clock time-using clock_ gettime()'
+set term png enhanced font 'Verdana,10'
+set output 'Run Time analysis.png'
+
+plot 'result_clock_gettime.csv' using 1:2 smooth csplines title 'Baseline', ''using 1:3 smooth csplines title 'omp 2', ''using 1:4 smooth csplines title 'omp 4',\
+'lebresult_clock_gettime.csv' using 1:2 smooth csplines title 'lebBaseline', ''using 1:3 smooth csplines title 'lebomp 2', ''using 1:4 smooth csplines title 'lebomp 4',''using 1:5 smooth csplines title 'lebAVX',''using 1:6 smooth csplines title 'lebAVX with Uroll'
